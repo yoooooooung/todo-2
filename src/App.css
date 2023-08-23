@@ -1,0 +1,43 @@
+#pagetitle {
+  text-align: center;
+  background: skyblue;
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+#addbox {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 30px;
+}
+
+input {
+  width: 100%;
+  height: 30px;
+  font-size: 22px;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+#titlebox {
+  width: 30%;
+}
+
+#contentsbox {
+  width: 50%;
+}
+
+.addbutton {
+  padding: 10px;
+  background: pink;
+  border: transparent;
+  border-radius: 5px;
+}
