@@ -10,7 +10,7 @@
   width: 90%;
   margin: 50px auto;
   padding: 30px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* padding+border 값을 width에 포함시킨다는 뜻 */
   border: 1px solid gray;
   border-radius: 10px;
   display: flex;
@@ -42,11 +42,12 @@
   background: pink;
   border: transparent;
   border-radius: 5px;
+  cursor: pointer; /* 커서를 올리면, 손모양 나타나게 하기 */
 }
 
 #listbox {
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 50px auto; /* margin: 위 오 아 왼 */
   display: flex;
   gap: 20px;
   flex-wrap: wrap; /* 가로가 길어지면 밑으로 떨어뜨리기 */
@@ -56,19 +57,19 @@
   padding: 20px;
   border: 1px solid gray;
   border-radius: 10px;
-  background-color: pink;
   min-width: 200px; /* .item의 최소 넓이 */
   min-height: 200px; /* .item의 최소 높이 */
   display: flex; /* display:flex 속성은 가로로 병렬할 때 주로 쓰이지만, */
   flex-direction: column; /* flex-direction 속성에서 column값을 주면 세로 정렬도 가능 (기본값은 row가로) */
   justify-content: space-between;
+  box-shadow: 5px 5px 5px lightgray;
 }
 
 .item input {
   width: 20px;
   height: 20px;
   margin: 0 10px 0 0;
-  cursor: pointer; /* 커서를 올리면, 손모양 나타나게 하기 */
+  cursor: pointer;
 }
 
 .todo_title {
@@ -89,7 +90,7 @@
   padding: 8px 20px;
   border-radius: 10px;
   border: transparent;
-  cursor: pointer; /* 커서를 올리면, 손모양 나타나게 하기 */
+  cursor: pointer;
 }
 
 .button_box .delete {
