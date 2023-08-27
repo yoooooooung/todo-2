@@ -1,6 +1,22 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("");
+
+  // input태그에 텍스트가 입력되면 위state에 넣어주는 핸들러 !
+  function change_title_handler(event) {
+    setTitle(event.target.value);
+  }
+
+  function change_contents_handler(event) {
+    setContents(event.target.value);
+  }
+
+  console.log(title);
+  console.log(contents);
+
   return (
     <div>
       <div id="header">
@@ -10,12 +26,12 @@ function App() {
       <div id="input_box">
         <div id="input_title">
           <h3>Title</h3>
-          <input type="text" id="title" />
+          <input type="text" id="title" onChange={change_title_handler} />
         </div>
 
         <div id="input_contents">
           <h3>Contents</h3>
-          <input type="text" id="contents" />
+          <input type="text" id="contents" onChange={change_contents_handler} />
         </div>
 
         <button className="add_button">add</button>
