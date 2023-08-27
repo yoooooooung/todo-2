@@ -2,36 +2,75 @@ import "./App.css";
 
 function App() {
   return (
-    <div> /* 모든 컨텐츠를 다 담는 큰 태그는 무조건 1개 있어야 함 */
-
-
+    <div>
       <div id="header">
         <h1>Todo-list</h1>
       </div>
-      
 
-      <div id="inputbox">
-
-        <div id="title">
+      <div id="input_box">
+        <div id="input_title">
           <h3>Title</h3>
           <input type="text" id="title" />
         </div>
 
-        <div id="contents">
+        <div id="input_contents">
           <h3>Contents</h3>
           <input type="text" id="contents" />
         </div>
-    
-        <button className="addbutton">add</button>
 
+        <button className="add_button">add</button>
       </div>
 
       <div id="listbox">
-        <div class="item">
-          {/* item 내부 구조 작성 */}
+        <div className="item">
+          <div>
+            <input type="checkbox"></input>
+            {/* <span>Done</span> */}
+          </div>
+          <div className="todo_title">투두 제목</div>
+          <div className="todo_contents">투두 내용~~~~</div>
+          <div className="button_box">
+            <button className="delete">DELETE</button>
+            <button className="cancel">CANCEL</button>
+          </div>
+        </div>
+        <div className="item">
+          <div>
+            <input type="checkbox"></input>
+            {/* <span>Done</span> */}
+          </div>
+          <div className="todo_title">투두 제목</div>
+          <div className="todo_contents">투두 내용~~~~</div>
+          <div className="button_box">
+            <button className="delete">DELETE</button>
+            <button className="cancel">CANCEL</button>
+          </div>
+        </div>
+        <div className="item">
+          <div>
+            <input type="checkbox"></input>
+            {/* <span>Done</span> */}
+          </div>
+          <div className="todo_title">투두 제목</div>
+          <div className="todo_contents">투두 내용~~~~</div>
+          <div className="button_box">
+            <button className="delete">DELETE</button>
+            <button className="cancel">CANCEL</button>
+          </div>
+        </div>
+        <div className="item">
+          <div>
+            <input type="checkbox"></input>
+            {/* <span>Done</span> */}
+          </div>
+          <div className="todo_title">투두 제목</div>
+          <div className="todo_contents">투두 내용~~~~</div>
+          <div className="button_box">
+            <button className="delete">DELETE</button>
+            <button className="cancel">CANCEL</button>
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
