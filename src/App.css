@@ -102,3 +102,9 @@
   background-color: darkorange;
   color: white;
 }
+
+.button_box .done {
+  background-color: rgb(44, 175, 44);
+  color: white;
+}
+

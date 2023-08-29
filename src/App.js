@@ -4,10 +4,26 @@ import "./App.css";
 function App() {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+
+  // todos : listbox안에서 뿌려줄 todo 들의 모음(배열)
   const [todos, setTodos] = useState([
-    { id: 1, title: "제목", contents: "내용~~~" },
+    { id: 1, title: "제목", contents: "내용~~~", isDone:false },
   ]);
 
+  function changeDoneHandler(todo) {
+    // 1. 어떤 item의 버튼을 클릭했는지 확인 => 인자로 넘겨받은 todo를 활용하여 id 값으로 확인
+    // 2. 해당 item의 isDone key의 값을 반대로 변경 (true <-> false)
+
+    const newTodos = todos.map(clickone => {
+      if (clickone.id === todo.id) {
+        return {...clickone, isDone: !todo.isDone}
+      }
+    })
+    console.log(todo.id)
+    return setTodos(newTodos)
+  }
+
+  // console.log => (인터넷창)개발자도구 -> 콘솔에 나타나는 내용
   console.log(title);
   console.log(contents);
 
@@ -23,10 +39,10 @@ function App() {
           <input
             type="text"
             id="title"
-            onChange={(event) => {
+            onChange={(event) => {  // input에 변화가 있을 때 발생하는 event를 가지고 함수 작동
               setTitle(event.target.value);
             }}
-            value={title}
+            value={title}   // input안의 텍스트를 title과 동기화시킴 (내용 초기화를 위해)
           />
         </div>
 
@@ -35,19 +51,19 @@ function App() {
           <input
             type="text"
             id="contents"
-            onChange={(event) => {
+            onChange={(event) => {  // input에 변화가 있을 때 발생하는 event를 가지고 함수 작동
               setContents(event.target.value);
             }}
-            value={contents}
+            value={contents} // input안의 텍스트를 title과 동기화시킴 (내용 초기화를 위해)
           />
         </div>
 
         <button
           className="add_button"
-          onClick={() => {
+          onClick={() => {  // 클릭시 todos배열 내에 추가하기
             setTodos([
-              ...todos,
-              { id: todos.length + 1, title: title, contents: contents },
+              ...todos,  // 전개 연산자 사용하여 내부 요소들 가져오기
+              { id: todos.length + 1, title: title, contents: contents, isDone:false },
             ]);
             setTitle("");
             setContents("");
@@ -58,19 +74,7 @@ function App() {
       </div>
 
       <div id="listbox">
-        {/* <div className="item">
-          <div>
-            <input type="checkbox"></input>
-          </div>
-          <div className="todo_title">투두 제목</div>
-          <div className="todo_contents">투두 내용~~~~</div>
-          <div className="button_box">
-            <button className="delete">DELETE</button>
-            <button className="cancel">CANCEL</button>
-          </div>
-        </div> */}
-        {/* jsx안에서 JS문법을 쓸 때에는 중괄호 열어야 함 */}
-        {todos.map((todo) => (
+        {todos.map((todo) => (    // map 메서드를 사용해서 todos 배열에 담긴 요소 하나하나를 꺼내기(뿌려주기)
           <div className="item" key={todo.id}>
             <div>
               <input type="checkbox"></input>
@@ -79,7 +83,39 @@ function App() {
             <div className="todo_contents">{todo.contents}</div>
             <div className="button_box">
               <button className="delete">DELETE</button>
-              <button className="cancel">CANCEL</button>
+
+              <button
+                className={todo.isDone ? "cancel" : "done"} // isDone이 true라면 className을 cancel로 준다
+                onClick={() => {
+                  // changeDoneHandler(todo)
+                  // setTodos(prev => {
+                  //   return prev.map(clickone => {
+                  //     if (clickone.id === todo.id) {
+                  //       return {...clickone, isDone: !todo.isDone}
+                  //     }
+                  //   })
+                  // })
+                  //2
+                  setTodos(todos.map(clickone => {
+                      if (clickone.id === todo.id) {
+                        return {...clickone, isDone: !todo.isDone}
+                      }
+                    })
+                  )
+                  // const newTodos = todos.map(clickone => {
+                  //   if (clickone.id === todo.id) {
+                  //     return {...clickone, isDone: !todo.isDone}
+                  //   }
+                  // })
+                  // console.log(todo.id)
+                  // return setTodos(newTodos)
+                }}
+              >
+                {/* jsx안에서 JS문법을 쓸 때에는 중괄호 열어야 함 */}
+                {/* isDone이 true라면, 버튼 내용을 "CANCEL"로 노출 */}
+                {todo.isDone ? "CANCEL" : "DONE"}
+                </button>
+
             </div>
           </div>
         ))}
