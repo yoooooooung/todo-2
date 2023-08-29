@@ -65,9 +65,26 @@
   box-shadow: 5px 5px 5px lightgray;
 }
 
-.item input {
-  width: 20px;
-  height: 20px;
+.item .checkbox {
+  display: flex;
+}
+
+.item .checked {
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+  background-image: url(https://w7.pngwing.com/pngs/322/122/png-transparent-check-mark-scalable-graphics-free-check-mark-angle-hand-check-mark-thumbnail.png);
+  background-size: cover;
+}
+
+.item .unchecked {
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
   margin: 0 10px 0 0;
   cursor: pointer;
 }
