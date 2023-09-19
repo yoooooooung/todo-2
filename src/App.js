@@ -10,6 +10,9 @@ function App() {
     { id: 1, title: "제목", contents: "내용~~~", isDone:false },
   ]);
 
+  // 고유한 id 값을 주기 위해 Date.now() 사용
+  let keyid = Date.now()
+
   // Cancel <-> Done 핸들러
   const changeDoneHandler = (todo) => {
     setTodos(todos.map(clickone => (
@@ -58,7 +61,7 @@ function App() {
           onClick={() => {  // 클릭시 todos배열 내에 추가하기
             setTodos([
               ...todos,  // 전개 연산자 사용하여 내부 요소들 가져오기
-              { id: todos.length + 1, title: title, contents: contents, isDone:false },
+              { id: keyid, title: title, contents: contents, isDone:false },
             ]);
             setTitle("");
             setContents("");
